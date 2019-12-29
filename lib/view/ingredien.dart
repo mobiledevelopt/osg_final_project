@@ -54,25 +54,43 @@ class _IngredienState extends State<Ingredien> {
             return Column(
               children: <Widget>[
                 Card(
-                  child: ListTile(
-                    onTap: () {
-                      filterIngredien(data.meal[index].strIngredient);
-                    },
-                    title: Text(
-                      data.meal[index].strIngredient,
-                      textAlign: TextAlign.center,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black87),
-                    ),
+                  margin: EdgeInsets.all(18),
+                  elevation: 7.0,
+                  child: Column(
+                    children: <Widget>[
+                      ListTile(
+                        onTap: () {
+//                          filterIngredien(data.meal[index].strIngredient);
+                        },
+                        title: Text(
+                          data.meal[index].strIngredient,
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87),
+                        ),
+
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(18.0),
+                        child: Text(data.meal[index].strDescription == null ? "No Deskripsi" : data.meal[index].strDescription,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 8,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87),),
+                      )
+                    ],
                   ),
                 ),
               ],
             );
           });
-
+//ssss
   List<IngredienList> parseJson(String response) {
     if (response == null) {
       return [];
